@@ -94,11 +94,11 @@ volumio@volumio: sudo tar xzf /home/volumio/mympd.tar.gz
 
 # Unpacking could take some time ..zzz...
 
-# Enter bin directory of our MPD build.
+# Enter bin directory of our MPD build
 volumio@volumio: cd /opt/mympd/bin
 
 # Quick check that our MPD is executable. Don't leave out the ./ before mpd, otherwise you will be executing Volumio's MPD!
-volumio@volumio: ./mpd --help
+volumio@volumio: ./mpd --version
 Music Player Daemon 0.21.16 (0.21.16)
 Copyright 2003-2007 Warren Dukes <warren.dukes@gmail.com>
 Copyright 2008-2018 Max Kellermann <max.kellermann@gmail.com>
@@ -106,7 +106,7 @@ This is free software; see the source for copying conditions.  There is NO
 warranty; not even MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 ...
-# If you see something like the above, mpd is executable we can proceed to next step.
+# If you see something like the above, mpd is executable and we can proceed to the next step.
 
 # Switch Volumio's MPD to ours
 volumio@volumio: sudo ./systemd-switch-mpd.sh
