@@ -1,0 +1,29 @@
+
+This script builds a self-contained Music Player Daemon (MPD) package.
+
+To show this help, run ./build.sh --help
+
+Build usage: 
+./build.sh --target=ARCH --prefix=PREFIX --output=FILENAME -jLEVEL
+
+Defaults for the options are specified in brackets.
+
+Build options:
+  --target=ARCH           architecture of the target system [armv7]
+  --prefix=PREFIX         the path to MPD on the target system
+                          [/opt/mpd-<version>_<yyyymmdd>]
+  --output=FILENAME       filename of the output package
+                          (should end with '.tar.gz')
+                          [mpd-<version>.<ARCH>-<yyyymmdd>-<build_id>.tar.gz]
+  -jLEVEL                 set the make concurrency level to LEVEL [1]
+
+Other usage:
+./build.sh [clean or distclean] --target=ARCH
+
+Clean options:
+  clean                   clear files and directories created during build
+  distclean               same as clean, but also clear downloaded package
+                          sources
+  --target=ARCH           if this option is specified, then clean or distclean 
+                          will only clear build files and directories related
+                          to ARCH

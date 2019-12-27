@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [ "\$EUID" -ne 0 ]; then 
+    echo "Please run as root"
+    exit 1
+fi
+
+prefix=${INSTALL_PREFIX}
+
+echo "Disabling and stopping current MPD systemd service..."
+systemctl disable mpd
+systemctl stop mpd
+
+if [[ "\$1" == "--original" ]]; then
+    echo "Enabling original MPD systemd service..."
+    systemctl enable /lib/systemd/system/mpd.service
+    systemctl daemon-reload
+    systemctl start mpd
+    echo "Reverted to original MPD"
+else
+    echo "Enabling new MPD systemd service..."
+    systemctl enable \${prefix}/lib/systemd/system/mpd.service
+    systemctl daemon-reload
+    systemctl start mpd
+    echo "Done! To revert to the original MPD, run this script with --original option."
+fi
