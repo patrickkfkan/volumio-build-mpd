@@ -1,4 +1,4 @@
-#volumio-build-mpd
+# volumio-build-mpd
 
 Bash script for cross-building Music Player Daemon (MPD) for Volumio.
 
@@ -6,7 +6,7 @@ The primary aim is to build the latest version of MPD for Volumio which, as of n
 
 The build script supports cross-building MPD for the armv7 and x86 architectures.
 
-##Test status
+## Test status
 
 Tested in Volumio with MPD built by this script:
 - Playing local files
@@ -16,7 +16,7 @@ Tested in Volumio with MPD built by this script:
 
 Testers needed - in particular, playing files over network shares (NFS and Samba).
 
-##Build environment
+## Build environment
 
 The build script has been tested on Debian Buster, but a similar distro like Ubuntu 18.04 should also work. You need to install the necessary build tools first before running the script:
 
@@ -32,7 +32,7 @@ $ pip3 install meson ninja
 $ sudo apt install yasm
 ```
 
-##Usage
+## Usage
 
 ```
 $ ./build.sh --target=ARCH --prefix=PREFIX --output=FILENAME -jLEVEL
@@ -48,9 +48,9 @@ Notes:
 - Running `./build.sh --help` will show you help information.
 
 
-##Example
+## Example
 
-####Building
+#### Building
 
 ```
 # Go to home directory
@@ -77,7 +77,7 @@ Binary package created: /home/patrickkfkan/volumio-build-mpd/targets/mympd.tar.g
 
 ```
 
-####Deployment
+#### Deployment
 Let's assume our Volumio device is accessible at `volumio.local` and SSH is enabled.
 
 ```
