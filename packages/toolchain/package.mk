@@ -1,4 +1,9 @@
 case ${BUILD_ARCH} in
+"arm")
+    PACKAGE_NAME="Raspberry Pi GCC Cross-Compiler Toolchains"
+    PACKAGE_VERSION="8.3.0-pi_0-1"
+    PACKAGE_SRC="https://sourceforge.net/projects/raspberry-pi-cross-compilers/files/Raspberry%20Pi%20GCC%20Cross-Compiler%20Toolchains/GCC%208.3.0/Raspberry%20Pi%201%2C%20Zero/cross-gcc-8.3.0-pi_0-1.tar.gz"
+    ;;
 "armv7")
 	PACKAGE_NAME="GNU Toolchain for the A-profile Architecture"
 	PACKAGE_VERSION="GCC 8.3-2019.03"
@@ -15,8 +20,11 @@ esac
 
 on_exit_build() {
 	TOOLCHAIN_DIR=$(pwd)
-
 	case ${BUILD_ARCH} in
+	"arm")	
+		BUILD_TARGET="arm-linux-gnueabihf"
+        BUILD_LDFLAGS="-L${STAGING_DIR}/${INSTALL_PREFIX}/lib -Wl,--rpath-link=${STAGING_DIR}/${INSTALL_PREFIX}/lib -Wl,--rpath-link=${STAGING_DIR}/${INSTALL_PREFIX}/lib/pulseaudio -Wl,--rpath-link=${STAGING_DIR}/${INSTALL_PREFIX}/lib/private -Wl,--rpath-link=${TOOLCHAIN_DIR}/${BUILD_TARGET}/libc/lib -Wl,--rpath=${INSTALL_PREFIX}/${BUILD_TARGET}/lib -Wl,--rpath=${INSTALL_PREFIX}/lib -Wl,--dynamic-linker=${INSTALL_PREFIX}/${BUILD_TARGET}/lib/ld-linux-armhf.so.3"
+		;;
 	"armv7")	
 		BUILD_TARGET="arm-linux-gnueabihf"
 #		BUILD_LDFLAGS="-L${STAGING_DIR}/${INSTALL_PREFIX}/${BUILD_TARGET}/lib -L${STAGING_DIR}/${INSTALL_PREFIX}/lib -Wl,--sysroot=${STAGING_DIR} -Wl,--rpath=${INSTALL_PREFIX}/${BUILD_TARGET}/lib -Wl,--rpath=${INSTALL_PREFIX}/lib -Wl,--dynamic-linker=${INSTALL_PREFIX}/${BUILD_TARGET}/lib/ld-linux-armhf.so.3"
@@ -39,11 +47,11 @@ on_exit_build() {
 
 	BUILD_CC="${TOOLCHAIN_DIR}/bin/${BUILD_TARGET}-gcc"
 	BUILD_CXX="${TOOLCHAIN_DIR}/bin/${BUILD_TARGET}-g++"
+    BUILD_CFLAGS="-I${STAGING_DIR}/${INSTALL_PREFIX}/include"
 	BUILD_AR="${TOOLCHAIN_DIR}/bin/${BUILD_TARGET}-ar"
 	BUILD_RANLIB="${TOOLCHAIN_DIR}/bin/${BUILD_TARGET}-ranlib"
 	BUILD_OBJCOPY="${TOOLCHAIN_DIR}/bin/${BUILD_TARGET}-objcopy"
 	BUILD_STRIP="${TOOLCHAIN_DIR}/bin/${BUILD_TARGET}-strip"
-	BUILD_CFLAGS="-I${STAGING_DIR}/${INSTALL_PREFIX}/include"
 	BUILD_PKG_CONFIG_LIBDIR="${STAGING_DIR}/${INSTALL_PREFIX}/lib/pkgconfig"
 	BUILD_PKG_CONFIG_SYSROOT_DIR="${STAGING_DIR}"
 	export PATH="${TOOLCHAIN_DIR}/bin:${PATH}"

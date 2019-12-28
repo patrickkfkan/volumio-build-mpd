@@ -39,7 +39,7 @@ $ ./build.sh --target=ARCH --prefix=PREFIX --output=FILENAME -jLEVEL
 ```
 
 Notes:
-- --target=ARCH: armv7 or x86.
+- --target=ARCH: arm, armv7 or x86.
 - --prefix=PREFIX: the path that would point to the MPD build on the target device. **Do not** use general or shared ones like `/usr` or `/usr/local`. Instead, choose a path that can hold the MPD build entirely on its own, such as `/opt/mympd`.
 - --output=FILENAME: the name of the binary package that will be generated when the build finishes. This is a gzipped tar archive that will hold all the files needed for running MPD. After the build finishes, you would copy this file to your Volumio device for deployment. Binary packages are stored under the `targets` directory.
 - --jLEVEL: the number of jobs to run in parallel by the compiler. To maximize usage of your CPU, you can set this to a value that is double the number of cores of your processor (e.g. `-j8` for a quad-core CPU).

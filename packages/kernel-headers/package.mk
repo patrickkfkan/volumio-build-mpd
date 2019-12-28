@@ -6,7 +6,7 @@ install_package() {
 	echo "mkdir -p ${STAGING_DIR}/${INSTALL_PREFIX}/${BUILD_TARGET}"
     local kernel_arch
     case ${BUILD_ARCH} in
-	"armv7")
+	"arm"|"armv7")
         kernel_arch="arm"
         ;;
     "x86")

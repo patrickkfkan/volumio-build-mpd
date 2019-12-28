@@ -20,7 +20,7 @@ configure_package() {
 				--without-pam"
 
     case ${BUILD_ARCH} in
-	"armv7")
+	"arm"|"armv7")
         local cross_compile="true"
         local cross_exe="qemu-arm-static -L ${STAGING_DIR}"
         local cross_hostcc="gcc"

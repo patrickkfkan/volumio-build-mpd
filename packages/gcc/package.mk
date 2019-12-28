@@ -13,7 +13,7 @@ preconfigure_package() {
 configure_package() {
 	local arch_flags
 	case ${BUILD_ARCH} in
-	"armv7")
+	"arm"|"armv7")
 		arch_flags="--with-float=hard --with-fpu=vfp"
 		;;
 	*)
