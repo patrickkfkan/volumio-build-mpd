@@ -1,7 +1,7 @@
 PACKAGE_NAME="AdPlug - AdLib sound player library"
-PACKAGE_VERSION="2.3.1"
+PACKAGE_VERSION="2.3.3"
 PACKAGE_DEPENDS="libbinio"
-PACKAGE_SRC="https://github.com/adplug/adplug/releases/download/adplug-2.3.1/adplug-2.3.1.tar.bz2"
+PACKAGE_SRC="https://github.com/adplug/adplug/releases/download/adplug-2.3.3/adplug-2.3.3.tar.bz2"
 
 preconfigure_package() {
 	# The configure script looks for <sys/io.h> and sets the HAVE_SYS_IO_H flag.

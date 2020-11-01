@@ -1,6 +1,6 @@
 PACKAGE_NAME="OpenAL Soft"
-PACKAGE_VERSION="1.20.0"
-PACKAGE_SRC="https://github.com/kcat/openal-soft/archive/openal-soft-1.20.0.tar.gz"
+PACKAGE_VERSION="1.20.1"
+PACKAGE_SRC="https://github.com/kcat/openal-soft/archive/openal-soft-1.20.1.tar.gz"
 PACKAGE_USE_SEPARATE_BUILD_DIR="true"
 
 configure_package() {

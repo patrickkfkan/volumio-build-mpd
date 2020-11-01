@@ -1,6 +1,6 @@
 PACKAGE_NAME="FFmpeg"
-PACKAGE_VERSION="4.2.1"
-PACKAGE_SRC="https://www.ffmpeg.org/releases/ffmpeg-4.2.1.tar.gz"
+PACKAGE_VERSION="4.3"
+PACKAGE_SRC="https://www.ffmpeg.org/releases/ffmpeg-4.3.tar.gz"
 
 configure_package() {
 	export PKG_CONFIG_LIBDIR="${BUILD_PKG_CONFIG_LIBDIR}"

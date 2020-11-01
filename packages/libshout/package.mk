@@ -1,6 +1,6 @@
 PACKAGE_NAME="libshout"
-PACKAGE_VERSION="2.4.3"
-PACKAGE_SRC="http://downloads.xiph.org/releases/libshout/libshout-2.4.3.tar.gz"
+PACKAGE_VERSION="2.4.4"
+PACKAGE_SRC="https://ftp.osuosl.org/pub/xiph/releases/libshout/libshout-2.4.4.tar.gz"
 
 configure_package() {
 	CC="${BUILD_CC}" CXX="${BUILD_CXX}" CFLAGS="${BUILD_CFLAGS}" CXXFLAGS="${BUILD_CFLAGS}" CPPFLAGS="${BUILD_CFLAGS}" LDFLAGS="${BUILD_LDFLAGS}" PKG_CONFIG_LIBDIR="${BUILD_PKG_CONFIG_LIBDIR}" PKG_CONFIG_SYSROOT_DIR="${BUILD_PKG_CONFIG_SYSROOT_DIR}" ./configure --prefix=${INSTALL_PREFIX} --build=${MACHTYPE} --host=${BUILD_TARGET}

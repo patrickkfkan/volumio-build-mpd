@@ -1,6 +1,6 @@
 PACKAGE_NAME="libmpdclient"
-PACKAGE_VERSION="2.17"
-PACKAGE_SRC="https://www.musicpd.org/download/libmpdclient/2/libmpdclient-2.17.tar.xz"
+PACKAGE_VERSION="2.19"
+PACKAGE_SRC="https://www.musicpd.org/download/libmpdclient/2/libmpdclient-2.19.tar.xz"
 PACKAGE_USE_SEPARATE_BUILD_DIR="true"
 
 configure_package() {

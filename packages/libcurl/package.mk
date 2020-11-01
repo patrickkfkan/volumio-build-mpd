@@ -1,6 +1,6 @@
 PACKAGE_NAME="libcurl"
-PACKAGE_VERSION="7.67.0"
-PACKAGE_SRC="https://curl.haxx.se/download/curl-7.67.0.tar.gz"
+PACKAGE_VERSION="7.73.0"
+PACKAGE_SRC="https://curl.haxx.se/download/curl-7.73.0.tar.gz"
 
 configure_package() {
 	# remember to pass the target device's CA certs path

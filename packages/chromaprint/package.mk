@@ -1,6 +1,6 @@
 PACKAGE_NAME="Chromaprint"
-PACKAGE_VERSION="1.4.3"
-PACKAGE_SRC="https://github.com/acoustid/chromaprint/releases/download/v1.4.3/chromaprint-1.4.3.tar.gz"
+PACKAGE_VERSION="1.5.0"
+PACKAGE_SRC="https://github.com/acoustid/chromaprint/releases/download/v1.5.0/chromaprint-1.5.0.tar.gz"
 PACKAGE_USE_SEPARATE_BUILD_DIR="true"
 
 configure_package() {

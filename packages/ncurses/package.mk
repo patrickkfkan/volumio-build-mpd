@@ -1,6 +1,6 @@
 PACKAGE_NAME="ncurses"
-PACKAGE_VERSION="6.1"
-PACKAGE_SRC="ftp://ftp.gnu.org/gnu/ncurses/ncurses-6.1.tar.gz"
+PACKAGE_VERSION="6.2"
+PACKAGE_SRC="ftp://ftp.gnu.org/gnu/ncurses/ncurses-6.2.tar.gz"
 
 configure_package() {
 	# specifying --with-termlib is important because libcdio requires it (libtinfo)

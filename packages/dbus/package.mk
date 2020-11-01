@@ -1,6 +1,6 @@
 PACKAGE_NAME="D-Bus"
-PACKAGE_VERSION="1.13.12"
-PACKAGE_SRC="https://dbus.freedesktop.org/releases/dbus/dbus-1.13.12.tar.xz"
+PACKAGE_VERSION="1.13.18"
+PACKAGE_SRC="https://dbus.freedesktop.org/releases/dbus/dbus-1.13.18.tar.xz"
 
 
 configure_package() {

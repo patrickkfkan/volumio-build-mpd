@@ -1,6 +1,6 @@
 PACKAGE_NAME="JACK Audio Connection Kit"
-PACKAGE_VERSION="1.9.13"
-PACKAGE_SRC="https://github.com/jackaudio/jack2/releases/download/v1.9.13/jack2-1.9.13.tar.gz"
+PACKAGE_VERSION="1.9.16"
+PACKAGE_SRC="https://github.com/jackaudio/jack2/archive/v1.9.16.tar.gz"
 
 configure_package() {
 	CC="${BUILD_CC}" CXX="${BUILD_CXX}" CFLAGS="${BUILD_CFLAGS}" CXXFLAGS="${BUILD_CFLAGS}" CPPFLAGS="${BUILD_CFLAGS}" LDFLAGS="${BUILD_LDFLAGS} -ltinfo" PKG_CONFIG_LIBDIR="${BUILD_PKG_CONFIG_LIBDIR}" PKG_CONFIG_SYSROOT_DIR="${BUILD_PKG_CONFIG_SYSROOT_DIR}" ./waf configure --prefix=${INSTALL_PREFIX}

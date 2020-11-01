@@ -1,6 +1,6 @@
 PACKAGE_NAME="Game Music Emu"
-PACKAGE_VERSION="0.6.2"
-PACKAGE_SRC="https://bitbucket.org/mpyne/game-music-emu/downloads/game-music-emu-0.6.2.tar.xz"
+PACKAGE_VERSION="0.6.3"
+PACKAGE_SRC="https://bitbucket.org/mpyne/game-music-emu/downloads/game-music-emu-0.6.3.tar.xz"
 PACKAGE_USE_SEPARATE_BUILD_DIR="true"
 
 configure_package() {

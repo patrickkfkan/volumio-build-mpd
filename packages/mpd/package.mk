@@ -1,7 +1,7 @@
 PACKAGE_NAME="MPD"
-PACKAGE_VERSION="0.21.16"
+PACKAGE_VERSION="0.22.2"
 PACKAGE_DEPENDS="base support system multimedia"
-PACKAGE_SRC="http://www.musicpd.org/download/mpd/0.21/mpd-0.21.16.tar.xz"
+PACKAGE_SRC="http://www.musicpd.org/download/mpd/0.22/mpd-0.22.2.tar.xz"
 PACKAGE_USE_SEPARATE_BUILD_DIR="true"
 
 preconfigure_package() {

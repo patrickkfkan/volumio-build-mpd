@@ -1,6 +1,6 @@
 PACKAGE_NAME="Kmod"
-PACKAGE_VERSION="26"
-PACKAGE_SRC="https://mirrors.edge.kernel.org/pub/linux/utils/kernel/kmod/kmod-26.tar.xz"
+PACKAGE_VERSION="27"
+PACKAGE_SRC="https://mirrors.edge.kernel.org/pub/linux/utils/kernel/kmod/kmod-27.tar.xz"
 
 
 configure_package() {

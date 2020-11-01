@@ -2,7 +2,7 @@ case ${BUILD_ARCH} in
 "arm")
     PACKAGE_NAME="Raspberry Pi GCC Cross-Compiler Toolchains"
     PACKAGE_VERSION="8.3.0-pi_0-1"
-    PACKAGE_SRC="https://sourceforge.net/projects/raspberry-pi-cross-compilers/files/Raspberry%20Pi%20GCC%20Cross-Compiler%20Toolchains/GCC%208.3.0/Raspberry%20Pi%201%2C%20Zero/cross-gcc-8.3.0-pi_0-1.tar.gz"
+    PACKAGE_SRC="https://sourceforge.net/projects/raspberry-pi-cross-compilers/files/Raspberry%20Pi%20GCC%20Cross-Compiler%20Toolchains/Buster/GCC%208.3.0/Raspberry%20Pi%201%2C%20Zero/cross-gcc-8.3.0-pi_0-1.tar.gz"
     ;;
 "armv7")
 	PACKAGE_NAME="GNU Toolchain for the A-profile Architecture"
@@ -11,8 +11,8 @@ case ${BUILD_ARCH} in
 	;;
 "x86")
 	PACKAGE_NAME="Toolchain for the x86-i686 Architecture"
-	PACKAGE_VERSION="(Buildroot 2018.11-rc2-00003-ga0787e9) 8.2.0"
-	PACKAGE_SRC="https://toolchains.bootlin.com/downloads/releases/toolchains/x86-i686/tarballs/x86-i686--glibc--bleeding-edge-2018.11-1.tar.bz2"
+	PACKAGE_VERSION="(stable-2020.02-2) 8.4.0"
+	PACKAGE_SRC="https://toolchains.bootlin.com/downloads/releases/toolchains/x86-i686/tarballs/x86-i686--glibc--stable-2020.02-2.tar.bz2"
 	;;
 *)
 	;;
@@ -37,6 +37,38 @@ on_exit_build() {
 		# https://github.com/bootlin/toolchains-builder/issues/17
 		if [[ -e ${TOOLCHAIN_DIR}/bin/bison ]]; then
 			mv ${TOOLCHAIN_DIR}/bin/bison ${TOOLCHAIN_DIR}/bin/bison.disabled
+		fi
+		# Use system's Python 
+		if [[ -e ${TOOLCHAIN_DIR}/bin/python3 ]]; then
+			mv ${TOOLCHAIN_DIR}/bin/python3 ${TOOLCHAIN_DIR}/bin/python3.disabled
+		fi
+        # Use system's autoconf
+		if [[ -e ${TOOLCHAIN_DIR}/bin/autoconf ]]; then
+			mv ${TOOLCHAIN_DIR}/bin/autoconf ${TOOLCHAIN_DIR}/bin/autoconf.disabled
+		fi
+		# Use system's autoreconf
+		if [[ -e ${TOOLCHAIN_DIR}/bin/autoreconf ]]; then
+			mv ${TOOLCHAIN_DIR}/bin/autoreconf ${TOOLCHAIN_DIR}/bin/autoreconf.disabled
+		fi
+		# Use system's aclocal
+		if [[ -e ${TOOLCHAIN_DIR}/bin/aclocal ]]; then
+			mv ${TOOLCHAIN_DIR}/bin/aclocal ${TOOLCHAIN_DIR}/bin/aclocal.disabled
+		fi
+        # Use system's autoheader
+		if [[ -e ${TOOLCHAIN_DIR}/bin/autoheader ]]; then
+			mv ${TOOLCHAIN_DIR}/bin/autoheader ${TOOLCHAIN_DIR}/bin/autoheader.disabled
+		fi
+        # Use system's autom4te
+		if [[ -e ${TOOLCHAIN_DIR}/bin/autom4te ]]; then
+			mv ${TOOLCHAIN_DIR}/bin/autom4te ${TOOLCHAIN_DIR}/bin/autom4te.disabled
+		fi
+		# Use system's libtoolize
+		if [[ -e ${TOOLCHAIN_DIR}/bin/libtoolize ]]; then
+			mv ${TOOLCHAIN_DIR}/bin/libtoolize ${TOOLCHAIN_DIR}/bin/libtoolize.disabled
+		fi
+        # Use system's automake
+		if [[ -e ${TOOLCHAIN_DIR}/bin/automake ]]; then
+			mv ${TOOLCHAIN_DIR}/bin/automake ${TOOLCHAIN_DIR}/bin/automake.disabled
 		fi
 		;;
 	*)

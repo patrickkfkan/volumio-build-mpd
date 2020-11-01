@@ -25,7 +25,7 @@ $ apt install build-essential wget rsync gawk bison \
     	python python3 python3-pip cmake autoconf libtool \
     	git pkg-config gettext intltool qemu-user-static \
     	libgcrypt20-dev gperf libglib2.0-dev docbook-xsl \
-    	xsltproc libncurses-dev flex
+    	xsltproc libncurses-dev flex texinfo
 $ pip3 install meson ninja
 
 # If cross-building for x86, also need to do:

@@ -1,6 +1,6 @@
 PACKAGE_NAME="Libgpg-error"
-PACKAGE_VERSION="1.36"
-PACKAGE_SRC="https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.36.tar.bz2"
+PACKAGE_VERSION="1.39"
+PACKAGE_SRC="https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.39.tar.bz2"
 
 preconfigure_package() {
 	# allow building with gawk-5.0: http://www.linuxfromscratch.org/blfs/view/svn/general/libgpg-error.html
