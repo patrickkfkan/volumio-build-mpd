@@ -4,7 +4,9 @@ Bash script for cross-building Music Player Daemon (MPD) for Volumio.
 
 The primary aim is to build the latest version of MPD for Volumio which, as of now, is using an outdated version. My reason for doing so is to solve the premature playback cutoff problem that occurs with the YouTube plugin.
 
-The build script supports cross-building MPD for the armv7 and x86 architectures.
+The current version of the script builds MPD 0.22.2. It also builds mpc 0.33, which can be useful for testing the MPD build on the target device.
+
+The build script supports cross-building MPD for the arm, armv7 and x86 architectures.
 
 ## Test status
 
@@ -35,7 +37,7 @@ $ sudo apt install yasm
 ## Usage
 
 ```
-$ ./build.sh --target=ARCH --prefix=PREFIX --output=FILENAME -jLEVEL
+$ ./build.sh --target=ARCH --prefix=PREFIX --output=FILENAME -jLEVEL --no-mpc
 ```
 
 Notes:
@@ -43,6 +45,7 @@ Notes:
 - --prefix=PREFIX: the path that would point to the MPD build on the target device. **Do not** use general or shared ones like `/usr` or `/usr/local`. Instead, choose a path that can hold the MPD build entirely on its own, such as `/opt/mympd`.
 - --output=FILENAME: the name of the binary package that will be generated when the build finishes. This is a gzipped tar archive that will hold all the files needed for running MPD. After the build finishes, you would copy this file to your Volumio device for deployment. Binary packages are stored under the `targets` directory.
 - --jLEVEL: the number of jobs to run in parallel by the compiler. To maximize usage of your CPU, you can set this to a value that is double the number of cores of your processor (e.g. `-j8` for a quad-core CPU).
+- --no-mpc: include this flag if you don't want to include mpc in the build.
 - Default values will be provided for omitted options.
 - You will be prompted for confirmation before the build begins. Check that the build options (whether set by you or by default) are correct before continuing.
 - Running `./build.sh --help` will show you help information.
@@ -60,9 +63,10 @@ $ git clone https://github.com/patrickkfkan/volumio-build-mpd.git
 $ cd volumio-build-mpd
 $ ./build.sh --target=armv7 --prefix=/opt/mympd --output=mympd.tar.gz -j8
 --------------------------------------------------------------------------------
-Target arch           :  armv7
-Prefix                     :  /opt/mympd
+Target arch       :  armv7
+Prefix            :  /opt/mympd
 Binary package    :  /home/patrickkfkan/volumio-build-mpd/targets/mympd.tar.gz
+Include mpc       :  yes
 Make concurrency  :  8
 
 Note: Prefix will be the path to the MPD build on your target device 
@@ -99,7 +103,7 @@ volumio@volumio: cd /opt/mympd/bin
 
 # Quick check that our MPD is executable. Don't leave out the ./ before mpd, otherwise you will be executing Volumio's MPD!
 volumio@volumio: ./mpd --version
-Music Player Daemon 0.21.16 (0.21.16)
+Music Player Daemon 0.22.2 (0.22.2)
 Copyright 2003-2007 Warren Dukes <warren.dukes@gmail.com>
 Copyright 2008-2018 Max Kellermann <max.kellermann@gmail.com>
 This is free software; see the source for copying conditions.  There is NO
