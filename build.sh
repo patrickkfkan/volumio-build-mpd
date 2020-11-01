@@ -462,6 +462,11 @@ staging_to_target() {
     cp -p ${STAGING_DIR}/${INSTALL_PREFIX}/bin/mpd ${STAGING_TO_TARGET_DIR}/${INSTALL_PREFIX}/bin
     [[ ! $? -eq 0 ]] && return 1
 
+    if [[ "${NO_MPC}" != "true" ]]; then
+        cp -p ${STAGING_DIR}/${INSTALL_PREFIX}/bin/mpc ${STAGING_TO_TARGET_DIR}/${INSTALL_PREFIX}/bin
+        [[ ! $? -eq 0 ]] && return 1
+    fi
+
     echo "cd ${old_dir}"
     cd ${old_dir}
 }
@@ -568,6 +573,10 @@ case $i in
         MAKE_JOBS="${i#-j}"
         shift
         ;;
+    --no-mpc)
+        NO_MPC="true"
+        shift
+        ;;
     clean|distclean)
         if [[ ! -z "${INSTALL_PREFIX}" ]]; then
             echo "Ignoring option --prefix"
@@ -644,6 +653,11 @@ printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 echo "Target arch       :  ${BUILD_ARCH}"
 echo "Prefix            :  ${INSTALL_PREFIX}"
 echo "Binary package    :  ${TARGET_PACKAGE_FILE}"
+if [[ ${NO_MPC} == "true" ]]; then
+    echo "Include mpc       :  no"
+else
+    echo "Include mpc       :  yes"
+fi
 echo "Make concurrency  :  ${MAKE_JOBS}"
 echo_warning "\nNote: Prefix will be the path to the MPD build on your target device"
 printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
@@ -681,6 +695,11 @@ write_build_config
 
 process_package "mpd"
 [[ ! $? -eq 0 ]] && exit 1
+
+if [[ "${NO_MPC}" != "true" ]]; then
+    process_package "mpc"
+    [[ ! $? -eq 0 ]] && exit 1
+fi
 
 staging_to_target
 if [[ ! $? -eq 0 ]]; then
